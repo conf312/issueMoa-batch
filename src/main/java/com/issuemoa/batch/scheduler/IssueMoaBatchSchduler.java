@@ -15,7 +15,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,11 +27,13 @@ public class IssueMoaBatchSchduler {
     private final Job jobPullNaverNews;
     private final JobLauncher jobLauncher;
 
-    @Scheduled(fixedDelay = 60000)
+    //@Scheduled(cron = "0 0 12 * * *") // everyday 12:00 pm
+    @Scheduled(fixedDelay = 6000)
     public void pullNaverNews() {
         log.info("==> schedulerPullNaverNews Call");
+
         Map<String, JobParameter> jobParameterMap = new HashMap<>();
-        jobParameterMap.put("requestDate", new JobParameter(String.valueOf(LocalDateTime.now())));
+        jobParameterMap.put("requestDate", new JobParameter(String.valueOf(LocalDate.now())));
         JobParameters jobParameters = new JobParameters(jobParameterMap);
 
         try {

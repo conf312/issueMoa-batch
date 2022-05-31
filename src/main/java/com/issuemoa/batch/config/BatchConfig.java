@@ -45,8 +45,8 @@ public class BatchConfig {
     @Bean
     public Job jobPullNaverNews() throws Exception {
         return jobBuilderFactory.get("jobPullNaverNews")
-                .start(StepPullNaverNews())
-                .build();
+            .start(StepPullNaverNews())
+            .build();
     }
 
     @Bean

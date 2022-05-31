@@ -40,5 +40,8 @@ public class Board extends BaseTime {
         this.allTimeYn = allTimeYn;
         this.title = title;
         this.contents = contents;
+        this.readCnt = 0L;
+        this.registerId = 1L;
+        this.modifyId = 1L;
     }
 }
